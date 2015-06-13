@@ -35,7 +35,7 @@ That's it, you can now see your running application at:
 This sample Mule flow is based on the Content Base Routing example from Mule examples and
 I have customised it to use Servlet instead of HTTP. 
 
-I have also Sinhalese to the language choice. My native language :)
+I also added Sinhalese to the language choice. My native language :)
  
     http://muleontomcat-yournamespace.rhcloud.com/app/hello?language=Sinhalese 
     http://muleontomcat-yournamespace.rhcloud.com/app/hello?language=Spanish 
