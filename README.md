@@ -21,7 +21,6 @@ Register at http://openshift.redhat.com/, and then create a Tomcat 7 application
 Add this upstream git repo:
 
     cd muleontomcat
-    rm -rf src
     git remote add quickstart -m master https://github.com/tyrell/mule-webapp-openshift.git
     git pull -s recursive -X theirs quickstart master
     
