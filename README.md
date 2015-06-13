@@ -14,7 +14,7 @@ It exists to address the following common issues:
 Running the WAR on OpenShift
 ----------------------------
 
-Register at http://openshift.redhat.com/, and then create a raw (do-it-yourself) application:
+Register at http://openshift.redhat.com/, and then create a Tomcat 7 application:
 
     rhc app create -a muleontomcat -t jbossews-2.0 -l your-openshift-login-name
 
