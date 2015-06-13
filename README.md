@@ -16,11 +16,12 @@ Running the WAR on OpenShift
 
 Register at http://openshift.redhat.com/, and then create a Tomcat 7 application:
 
-    rhc app create -a muleontomcat -t jbossews-2.0 -l your-openshift-login-name
+    rhc app create -a muleontomcat -t jbossews-2.0 -n appdomainname -l your-openshift-login-name
 
 Add this upstream git repo:
 
-    cd mule
+    cd muleontomcat
+    rm -rf src
     git remote add quickstart -m master https://github.com/tyrell/mule-webapp-openshift.git
     git pull -s recursive -X theirs quickstart master
     
@@ -30,7 +31,7 @@ Then push the repo upstream:
 
 That's it, you can now see your running application at:
 
-    http://muleontomcat-yournamespace.rhcloud.com
+    http://muleontomcat-yournamespace.rhcloud.com/app/hello
 
 Updating your application
 ----------------------------
