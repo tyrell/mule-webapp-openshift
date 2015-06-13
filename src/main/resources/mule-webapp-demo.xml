@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" 
     xmlns:servlet="http://www.mulesoft.org/schema/mule/servlet"
     xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/servlet http://www.mulesoft.org/schema/mule/servlet/current/mule-servlet.xsd">
 
     <flow name="hello">
         <servlet:inbound-endpoint path="hello" />
-        <set-payload value="Hello World, this is Mule talking!" />
+        <set-variable doc:name="Set Language Variable" value="#[message.inboundProperties['http.query.params'].language]" variableName="language"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars['language'] == 'Spanish']">
+                <set-payload doc:name="Reply in Spanish" value="Hola!"/>
+            </when>
+            <when expression="#[flowVars['language'] == 'French']">
+                <set-payload doc:name="Reply in French" value="Bonjour!"/>
+            </when>
+            <when expression="#[flowVars['language'] == 'Sinhalese']">
+                <set-payload value="Ayubowan!" doc:name="Reply in Sinhalese"/>
+            </when>
+            <otherwise>
+                <flow-ref doc:name="Call replyInDefaultLanguage flow" name="replyInDefaultLanguage"/>
+            </otherwise>
+        </choice>
+        <logger doc:name="Log the reply" level="INFO" message="The reply &quot;#[payload]&quot; means &quot;hello&quot; in #[flowVars.language]."/>
     </flow>
+    <sub-flow name="replyInDefaultLanguage">
+        <logger doc:name="Logger" level="INFO" message="No language specified. Using English as a default. "/>
+        <set-variable doc:name="Set Language to English" value="English" variableName="language"/>
+        <set-payload doc:name="Reply in English" value="Hello!"/>
+    </sub-flow>
 </mule>

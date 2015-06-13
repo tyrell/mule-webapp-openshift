@@ -30,7 +30,17 @@ Then push the repo upstream:
 
 That's it, you can now see your running application at:
 
-    http://muleontomcat-yournamespace.rhcloud.com/app/hello
+	http://muleontomcat-yournamespace.rhcloud.com/app/hello
+
+This sample Mule flow is based on the Content Base Routing example from Mule examples and
+I have customised it to use Servlet instead of HTTP. 
+
+I have also Sinhalese to the language choice. My native language :)
+ 
+    http://muleontomcat-yournamespace.rhcloud.com/app/hello?language=Sinhalese 
+    http://muleontomcat-yournamespace.rhcloud.com/app/hello?language=Spanish 
+    http://muleontomcat-yournamespace.rhcloud.com/app/hello?language=French 
+    
 
 Updating your application
 ----------------------------
