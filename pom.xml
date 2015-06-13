@@ -18,15 +18,15 @@
 			</snapshots>
 		</repository>
 		<repository>
-            <id>ms.releases</id>
-            <url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
+			<id>ms.releases</id>
+			<url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -39,30 +39,40 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</pluginRepository>
+		<pluginRepository>
+			<id>ms.releases</id>
+			<url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
 	</pluginRepositories>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<java.version>1.7</java.version>
-        <mule.version>3.6.1</mule.version>
+		<mule.version>3.6.1</mule.version>
 	</properties>
 	<dependencies>
 		<dependency>
-            <groupId>org.mule.modules</groupId>
-            <artifactId>mule-module-spring-config</artifactId>
-            <version>${mule.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.modules</groupId>
-            <artifactId>mule-module-builders</artifactId>
-            <version>${mule.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.transports</groupId>
-            <artifactId>mule-transport-servlet</artifactId>
-            <version>${mule.version}</version>
-        </dependency>        
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-spring-config</artifactId>
+			<version>${mule.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-builders</artifactId>
+			<version>${mule.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.transports</groupId>
+			<artifactId>mule-transport-servlet</artifactId>
+			<version>${mule.version}</version>
+		</dependency>
 	</dependencies>
 	<profiles>
 		<profile>
@@ -78,13 +88,13 @@
 				<finalName>muleontomcat</finalName>
 				<plugins>
 					<plugin>
-                		<artifactId>maven-compiler-plugin</artifactId>
-                		<version>3.1</version>
-                		<configuration>
-                    		<source>${java.version}</source>
-                    		<target>${java.version}</target>
-                		</configuration>
-            		</plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.1</version>
+						<configuration>
+							<source>${java.version}</source>
+							<target>${java.version}</target>
+						</configuration>
+					</plugin>
 					<plugin>
 						<artifactId>maven-war-plugin</artifactId>
 						<version>2.1.1</version>
