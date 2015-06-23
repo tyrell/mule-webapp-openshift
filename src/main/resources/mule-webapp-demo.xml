@@ -18,21 +18,11 @@ http://www.mulesoft.org/schema/mule/servlet http://www.mulesoft.org/schema/mule/
             <when expression="#[flowVars['language'] == 'Sinhalese']">
                 <set-payload value="Ayubowan!" doc:name="Reply in Sinhalese"/>
             </when>
-            <when expression="#[flowVars['language'] == 'Italian']">
-                <set-payload value="Buongiorno!" doc:name="Reply in Italian"/>
-            </when>
-            <when expression="#[flowVars['language'] == 'Tamil']">
-                <set-payload value="Vanakkam!" doc:name="Reply in Tamil"/>
-            </when>
-            <when expression="#[flowVars['language'] == 'Mandarin']">
-                <set-payload value="Nihao!" doc:name="Reply in Mandarin"/>
-            </when>
-            <when expression="#[flowVars['language'] == 'Japanese']">
-                <set-payload value="Konnichiwa!" doc:name="Reply in Japanese"/>
-            </when>
+            <!--
             <when expression="#[flowVars['language'] == 'Australian']">
                 <set-payload value="G'day mate!" doc:name="Reply in Australian"/>
             </when>
+            -->
             <otherwise>
                 <flow-ref doc:name="Call replyInDefaultLanguage flow" name="replyInDefaultLanguage"/>
             </otherwise>
