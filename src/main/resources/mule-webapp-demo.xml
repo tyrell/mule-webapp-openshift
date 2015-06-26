@@ -18,11 +18,9 @@ http://www.mulesoft.org/schema/mule/servlet http://www.mulesoft.org/schema/mule/
             <when expression="#[flowVars['language'] == 'Sinhalese']">
                 <set-payload value="Ayubowan!" doc:name="Reply in Sinhalese"/>
             </when>
-            <!--
             <when expression="#[flowVars['language'] == 'Australian']">
                 <set-payload value="G'day mate!" doc:name="Reply in Australian"/>
             </when>
-            -->
             <otherwise>
                 <flow-ref doc:name="Call replyInDefaultLanguage flow" name="replyInDefaultLanguage"/>
             </otherwise>
